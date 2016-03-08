@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Runaway Tire</title>
+    <link rel="stylesheet" href="./css/application.css" charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="./javascript/bundle.js"></script>
+  </head>
+  <body>
+    <div id="game-window">
+      <div id="welcome-message" class="message-window">
+        <h3 class="welcome-header">Welcome to Runaway Tire!</h3>
+        <p>You are a spare tire that's fallen off the car! Oh No!</p>
+        <p>Luckily, your home is just down the street.</p>
+        <p>Use the spacebar to bounce over the obastacles!</p>
+        <p>Press Start To Play!</p>
+
+        <ul class="level-button-list">
+          <li>
+            <!-- add level difficulties -->
+            <button class="level-button" value="medium">Start</button>
+          </li>
+        </ul>
+      </div>
+
+
+
+      <div id="scoreboard" class="message-window">
+        <h3>GAME OVER</h3>
+        <p>Your score is: </p>
+        <p id="final-score"></p>
+        <p>Press Start To Play Again!</p>
+        <ul class="level-button-list">
+          <li>
+            <!-- add level difficulties -->
+            <button class="level-button" value="medium">Restart</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="score-window">
+        <p>Your score is: </p>
+        <p id="score">0</p>
+      </div>
+
+      <div id="tire">
+        <img id="tire-img" src="./images/tire-1.png" />
+      </div>
+
+    </div>
+
+    <p class="perimeter-instructions">
+      Press the spacebar to bounce over the obstacles!
+    </p>
+    <p class="perimeter-instructions">
+      Hold the down key duck!
+    </p>
+    <p class="perimeter-instructions">
+      Keep on rollin!
+    </p>
+
+    <p>
+      Vist my GitHub <a href="http://www.github.com/nhatho89"
+                          target="_blank">here</a>
+      for other projects!
+    </p>
+
+    <div class="tire-background">
+      <img src="./images/tire-background-3.png"/>
+    </div>
+
+  </body>
+</html>
