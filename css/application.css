@@ -39,9 +39,9 @@ h2 {
 
 
 
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
+    -webkit-animation:spin 3s linear infinite;
+    -moz-animation:spin 3s linear infinite;
+    animation:spin 3s linear infinite;
   }
     @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
     @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
@@ -96,7 +96,7 @@ h2 {
   border-bottom: 1px solid silver;
 }
 
-.level-button {
+.start-button {
   width: 75%;
   cursor: pointer;
   margin-bottom: 5px;
@@ -108,7 +108,7 @@ h2 {
   padding: 5px 20px;
 }
 
-.level-button:hover {
+.start-button:hover {
   background: #7FB73A;
 }
 
@@ -127,4 +127,8 @@ h2 {
   font-size: 20px;
   color: white;
   font-weight: bolder;
+}
+
+.jump {
+  bottom: 50px;
 }

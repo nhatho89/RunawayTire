@@ -6,6 +6,18 @@
     <link rel="stylesheet" href="./css/application.css" charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="./javascript/bundle.js"></script>
+    <!-- <script>
+    $(document).ready(function() {
+
+
+      //grabs tire image from dom by id and set it to tireElement
+      var tireElement = document.getElementById("tire");
+      var tire = new Tire(tireElement);
+      var gameWindow = document.getElementById("game-window");
+      var makeJump = true;
+
+      }
+    </script> -->
   </head>
   <body>
     <div id="game-window">
@@ -16,10 +28,10 @@
         <p>Use the spacebar to bounce over the obastacles!</p>
         <p>Press Start To Play!</p>
 
-        <ul class="level-button-list">
+        <ul class="start-button-container">
           <li>
             <!-- add level difficulties -->
-            <button class="level-button" value="medium">Start</button>
+            <button class="start-button" value="medium">Start</button>
           </li>
         </ul>
       </div>
@@ -31,10 +43,10 @@
         <p>Your score is: </p>
         <p id="final-score"></p>
         <p>Press Start To Play Again!</p>
-        <ul class="level-button-list">
+        <ul class="start-button-container">
           <li>
             <!-- add level difficulties -->
-            <button class="level-button" value="medium">Restart</button>
+            <button class="start-button" value="medium">Restart</button>
           </li>
         </ul>
       </div>
