@@ -10,13 +10,15 @@
   "license": "ISC",
 
   "devDependencies": {
-    "babel-core": "^6.2.0",
-    "babel-loader": "^6.2.0",
-    "webpack": "^1.12.13"
 
   },
 
   "dependencies": {
-    "jquery": "^2.1.4"
+    "babel-core": "^6.2.0",
+    "babel-loader": "^6.2.0",
+    "webpack": "^1.12.13",
+    "jquery": "^2.1.4",
+    "babel-preset-react": "^6.1.18",
+    "react": "^0.14.2"
   }
 }

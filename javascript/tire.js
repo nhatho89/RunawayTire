@@ -1,16 +1,26 @@
-var Tire = function(tireElement) {
-  this.htmlElement = tireElement;
-  this.addListeners();
-}
+(function() {
+  if(typeof window.RunawayTire === "undefined") {
+    window.RunawayTire = {};
+  }
 
-Tire.prototype.jump = function () {
-  debugger
-  this.htmlElement.style.bottom = "100px";
-
-  window.setTimeout(function () {
-    this.htmlElement.style.bottom = "0px";
-  }.bind(this), 500)
-};
+  var RunawayTire = window.RunawayTire;
 
 
-module.exports = Tire;
+ var Tire = RunawayTire.Tire = function(tireElement) {
+    this.htmlElement = tireElement;
+  }
+
+  Tire.prototype.addListeners = function () {
+  };
+
+  Tire.prototype.jump = function () {
+    console.log("jump!");
+    this.htmlElement.style.bottom = "100px";
+
+    window.setTimeout(function () {
+      this.htmlElement.style.bottom = "0px";
+    }.bind(this), 500)
+  };
+
+
+}());
