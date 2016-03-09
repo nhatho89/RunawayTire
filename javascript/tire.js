@@ -10,12 +10,9 @@
     this.htmlElement = tireElement;
   }
 
-  // Tire.prototype.addListeners = function () {
-  // };
-
   Tire.prototype.jump = function () {
     console.log("jump!");
-    this.htmlElement.style.bottom = "100px";
+    this.htmlElement.style.bottom = "150px";
 
     window.setTimeout(function () {
       this.htmlElement.style.bottom = "0px";
@@ -24,7 +21,7 @@
 
   Tire.prototype.duck = function () {
     $( "#tire-img" ).replaceWith( "<img src='./Images/tire-duck.png' class='tire-duck' />" );
-    this.htmlElement.style.bottom = "-32px";
+    this.htmlElement.style.bottom = "-30px";
   };
 
   Tire.prototype.unduck = function () {

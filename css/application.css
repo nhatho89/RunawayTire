@@ -31,11 +31,12 @@ h2 {
 #tire-img {
   width: 100px;
   height: 100px;
+  overflow: hidden;
 
 
-  -webkit-animation:spin 3s linear infinite;
-  -moz-animation:spin 3s linear infinite;
-  animation:spin 3s linear infinite;
+  -webkit-animation:spin 1s linear infinite;
+  -moz-animation:spin 1s linear infinite;
+  animation:spin 1s linear infinite;
 }
   @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
   @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
@@ -76,7 +77,8 @@ h2 {
   background-image: url('./../images/city-background.jpg');
   background-size: 100%;
   background-position: center;
-  box-shadow: 3px 3px 5px black;
+  box-shadow: 4px 4px 7px black;
+  overflow: hidden;
 }
 
 .score-window {
@@ -147,9 +149,6 @@ h2 {
   font-weight: bolder;
 }
 
-.jump {
-  bottom: 50px;
-}
 
 .github {
   font-size: 16px;
@@ -158,11 +157,14 @@ h2 {
 }
 
 .obstacle {
+  overflow:hidden;
   position: absolute;
-  bottom: 0px;
-  left: 1000px;
-  /*transition: left 1.0s;*/
-  /*transition-timing-function: linear;*/
-  /*background: linear-gradient(#aaa, #fff);*/
-  z-index: 5;
+  bottom: -20px;
+  right: -200px;
+  width: 125px;
+
+}
+
+.spikes {
+  width: 100%;
 }

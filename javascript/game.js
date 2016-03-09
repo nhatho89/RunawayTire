@@ -10,8 +10,7 @@
     this.score = 0;
     this.started = false;
     this.startButton = document.getElementsByClassName("start-button");
-    this.makeJump = true;
-    this.obstacles = [];
+
     this.window = document.getElementById("game-window");
 
     document.addEventListener("keyup", function(e) {
@@ -32,39 +31,6 @@
 
   };
 
-  Game.prototype.createObstacle = function () {
-
-    var obstacle = new RunawayTire.Obstacle(this);
-
-    //add the obstacle to the Game's queue of obstacles
-    this.addObstacle(obstacle.domElement);
-
-    //append obstacle to game-window
-    this.window.appendChild(obstacle.domElement);
-
-    //10ms after obstacle is created, slide it
-    window.setTimeout(function() {
-      obstacle.slide();
-    }.bind(this), 10);
-
-  };
-
-  Game.prototype.addObstacle = function (obstacle) {
-    this.obstacles.push(obstacle);
-    console.log("Length: " + this.obstacles.length);
-  };
-
-  Game.prototype.initialize = function () {
-    var generateObstacles = function() {
-      this.createObstacle();
-      var rand = Math.floor((Math.random() * 1000) + 1500);
-      console.log("Interval: " + rand);
-      this.obstacleInterval = window.setTimeout(generateObstacles, rand);
-    }.bind(this);
-
-    generateObstacles();
-  };
-
 
   Game.prototype.start = function () {
     $("#welcome-message").hide();
@@ -72,19 +38,19 @@
     this.started = true;
     this.timeInterval = window.setInterval(this.incrementScore.bind(this), 50);
     // this.collisionInterval = window.setInterval(this.checkCollision.bind(this), 10);
-    this.initialize();
+    var obstacle = new RunawayTire.Obstacle(this);
   };
 
 
   Game.prototype.handleJump = function(event) {
     console.log(event.keyCode);
-    if (event.keyCode === 32) {
+    if (event.keyCode === 32 || event.keyCode === 38 || event.keyCode === 87) {
       console.log("keypressed" + event.keyCode);
       this.tire.jump();
     };
 
     //triggers ducking function
-    if (event.keyCode === 83) {
+    if (event.keyCode === 83 || event.keyCode === 40) {
 
       event.preventDefault();
       this.tire.duck();
@@ -100,7 +66,7 @@
 
   Game.prototype.handleDuck = function(event) {
     console.log("key up" + event.keyCode);
-    if (event.keyCode === 83) {
+    if (event.keyCode === 83 || event.keyCode === 40) {
 
       event.preventDefault();
       this.tire.unduck();
