@@ -110,6 +110,8 @@ h2 {
 
 .welcome-header {
   border-bottom: 1px solid silver;
+  color: #EAA31E;
+  font-size: 24px;
 }
 
 .start-button {
@@ -153,4 +155,14 @@ h2 {
   font-size: 16px;
   font-weight: bold;
   color: #AD5307;
+}
+
+.obstacle {
+  position: absolute;
+  bottom: 0px;
+  left: 1000px;
+  /*transition: left 1.0s;*/
+  /*transition-timing-function: linear;*/
+  /*background: linear-gradient(#aaa, #fff);*/
+  z-index: 5;
 }
