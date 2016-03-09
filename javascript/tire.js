@@ -10,8 +10,8 @@
     this.htmlElement = tireElement;
   }
 
-  Tire.prototype.addListeners = function () {
-  };
+  // Tire.prototype.addListeners = function () {
+  // };
 
   Tire.prototype.jump = function () {
     console.log("jump!");
@@ -19,8 +19,18 @@
 
     window.setTimeout(function () {
       this.htmlElement.style.bottom = "0px";
-    }.bind(this), 500)
+    }.bind(this), 300 )
   };
+
+  Tire.prototype.duck = function () {
+    $( "#tire-img" ).replaceWith( "<img src='./Images/tire-duck.png' class='tire-duck' />" );
+    this.htmlElement.style.bottom = "-32px";
+  };
+
+  Tire.prototype.unduck = function () {
+    $( ".tire-duck" ).replaceWith( "<img src='./Images/tire-1.png' id='tire-img' />" );
+    this.htmlElement.style.bottom = "0px";
+};
 
 
 }());

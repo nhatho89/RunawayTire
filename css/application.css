@@ -8,6 +8,12 @@ html, body, h2, button {
   font-style: inherit;
 }
 
+.tire-duck {
+  width: 100px;
+  height: 100px;
+  bottom: -50px;
+}
+
 ul {
   list-style-type: none;
 }
@@ -25,7 +31,17 @@ h2 {
 #tire-img {
   width: 100px;
   height: 100px;
+
+
+  -webkit-animation:spin 3s linear infinite;
+  -moz-animation:spin 3s linear infinite;
+  animation:spin 3s linear infinite;
 }
+  @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+  @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+  @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
+}
+
 
 #tire {
   position: absolute;
@@ -36,16 +52,16 @@ h2 {
   left: 200px;
   transition: bottom 0.5s, height 0s;
   -webkit-transition: bottom 0.5s, height 0s;
+  -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
 
 
-
-    -webkit-animation:spin 3s linear infinite;
+    /*-webkit-animation:spin 3s linear infinite;
     -moz-animation:spin 3s linear infinite;
     animation:spin 3s linear infinite;
   }
     @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
     @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-    @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
+    @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }*/
 }
 
 
@@ -131,4 +147,10 @@ h2 {
 
 .jump {
   bottom: 50px;
+}
+
+.github {
+  font-size: 16px;
+  font-weight: bold;
+  color: #AD5307;
 }

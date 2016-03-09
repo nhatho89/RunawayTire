@@ -4,69 +4,74 @@
   }
 
   var RunawayTire = window.RunawayTire;
-  // var Game = window.Game;
 
   var Game = RunawayTire.Game = function(tire) {
-
-
-    // grabs tire image from dom by id and set it to tireElement
     this.tire = tire;
-    this.gameWindow = document.getElementById("game-window");
+    this.score = 0;
+    this.started = false;
+    // this.gameWindow = document.getElementById("game-window");
+    this.startButton = document.getElementsByClassName("start-button");
     this.makeJump = true;
-    // this.bindEvents();
-    document.addEventListener( "keypress", function(e){
+
+    document.addEventListener("keyup", function(e) {
+      this.handleDuck(e);
+    }.bind(this));
+
+    document.addEventListener( "keydown", function(e){
       this.handleJump(e);
     }.bind(this));
+
+
+    document.addEventListener("click", function(e){
+      var game = new RunawayTire.Game(e.target.value);
+      if (!this.started) {
+        this.start();
+      }
+    }.bind(this));
+
+  };
+
+  // document.click(this.handleClickEvent.bind(this));
+
+  Game.prototype.start = function () {
+    $("#welcome-message").hide();
+    $("#scoreboard").hide();
+    this.started = true;
+    this.timeInterval = window.setInterval(this.incrementScore.bind(this), 50);
+    // this.collisionInterval = window.setInterval(this.checkCollision.bind(this), 10);
+    // this.init();
   };
 
 
-
-  // Game.prototype.bindEvents = function() {
-  //
-  //   $('document').keypress(this.handleJump(event));
-  // };
-
   Game.prototype.handleJump = function(event) {
-    // event.preventDefault();
+    console.log(event.keyCode);
     if (event.keyCode === 32) {
-
-      if (this.makeJump) {
-
-        console.log("keypressed");
-
-        this.tire.jump();
-      }
-      
+      console.log("keypressed" + event.keyCode);
+      this.tire.jump();
     };
 
     //triggers ducking function
-    if (event.keyCode === 40) {
+    if (event.keyCode === 83) {
+
       event.preventDefault();
-      tire.duck();
+      this.tire.duck();
     }
-  }
 
+  };
 
+  Game.prototype.handleDuck = function(event) {
+    console.log("key up" + event.keyCode);
+    if (event.keyCode === 83) {
 
+      event.preventDefault();
+      this.tire.unduck();
+    }
+  };
 
-
-  // document.addEventListener("keydown", function(event){
-  //   //triggers the jumping function
-  //   if (event.keyCode === 32) {
-  //     event.preventDefault();
-  //     debugger
-  //     if (Game.makeJump) {
-  //       debugger
-  //       Game.jump();
-  //     }
-  //     Game.makeJump = false;
-  //   }
-  //
-  //   //triggers ducking function
-  //   if (event.keyCode === 40) {
-  //     event.preventDefault();
-  //     tire.duck();
-  //   }
-  // });
+  Game.prototype.incrementScore = function () {
+    this.score += 1;
+    var scoreLabel = document.getElementById("score");
+    scoreLabel.innerHTML = this.score;
+  };
 
 }());
