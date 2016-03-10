@@ -74,7 +74,7 @@ h2 {
   height: 400px;
   margin: 25px auto;
   padding: 10px;
-  background-image: url('./../images/city-background.jpg');
+  background-image: url('./city-background.JPG');
   background-size: 100%;
   background-position: center;
   box-shadow: 4px 4px 7px black;

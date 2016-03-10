@@ -20,13 +20,13 @@
   };
 
   Tire.prototype.duck = function () {
-    $( "#tire-img" ).replaceWith( "<img src='./Images/tire-duck.png' class='tire-duck' />" );
+    $( "#tire-img" ).replaceWith( "<img src='./tire-duck.png' class='tire-duck' />" );
     // debugger
     this.htmlElement.style.bottom = "-30px";
   };
 
   Tire.prototype.unduck = function () {
-    $( ".tire-duck" ).replaceWith( "<img src='./Images/tire-1.png' id='tire-img' />" );
+    $( ".tire-duck" ).replaceWith( "<img src='./tire-1.png' id='tire-img' />" );
     this.htmlElement.style.bottom = "0px";
 };
 
