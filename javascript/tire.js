@@ -21,6 +21,7 @@
 
   Tire.prototype.duck = function () {
     $( "#tire-img" ).replaceWith( "<img src='./Images/tire-duck.png' class='tire-duck' />" );
+    // debugger
     this.htmlElement.style.bottom = "-30px";
   };
 

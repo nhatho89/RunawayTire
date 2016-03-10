@@ -161,8 +161,22 @@ h2 {
   position: absolute;
   bottom: -20px;
   right: -200px;
-  width: 125px;
+  /*right: 100px;*/
+  width: 150px;
 
+}
+
+.obstacle-railroad {
+  position: absolute;
+  width: 100px;
+  right: -100px;
+  /*left: 150px;*/
+  height: 400px;
+  bottom: -240px;
+}
+
+.railroad {
+  width: 150%;
 }
 
 .spikes {

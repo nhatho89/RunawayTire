@@ -8,28 +8,29 @@
   var Obstacle = RunawayTire.Obstacle = function(game) {
     this.obstacleHeight = 60;
     this.obstacleWidth = 120;
+    this.railObstacleHeight = 200;
+    this.railObstacleWidth = 100;
+    this.obstacleLoop;
 
     this.game = game;
-    this.domElement = this.generateElement();
+    this.generateElement();
   };
 
   Obstacle.prototype.generateElement = function () {
+    var objects = [$('.obstacle'),$('.obstacle-railroad')];
 
-    var gameWindow = document.getElementById("game-window");
+      this.obstacleLoop = setInterval(function() {
+        var rand = Math.floor((Math.random() * objects.length));
+        objects[rand].animate({ right: $(window).width() + 'px' }, 1500, 'linear', function() {
+          $(this).css({ right: - $(this).width() + 'px' });
+        });
+      }, 1500);
 
-    var newObstacle = $('.obstacle');
 
 
-
-
-    setInterval(function() {
-      $('.obstacle').animate({ right: $(window).width() + 'px' }, 3000, 'linear', function() {
-        $(this).css({ right: - $(this).width() + 'px' });
-      });
-    }, 10);
-
-    return newObstacle;
   };
+
+
 
 
 }());

@@ -7,8 +7,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-    <script src="./javascript/game.js"></script>
     <script src="./javascript/obstacles.js"></script>
+    <script src="./javascript/game.js"></script>
     <script src="./javascript/tire.js"></script>
     <script>
     $(document).ready(function() {
@@ -41,6 +41,7 @@
         <h3>GAME OVER</h3>
         <p>Your score is: </p>
         <p id="final-score"></p>
+        <p>Are You Tired Yet!!</p>
         <p>Press Start To Play Again!</p>
         <ul class="start-button-container">
           <li>
@@ -62,13 +63,17 @@
         <img class="spikes" src='./Images/tire-spike-burned.png' />
       </div>
 
+      <div class="obstacle-railroad">
+        <img class="railroad" src='./Images/railroad-cross.png' />
+      </div>
+
     </div>
 
     <p class="perimeter-instructions">
-      Jump: spacebar
+      Jump: Up , W
     </p>
     <p class="perimeter-instructions">
-      Duck: s
+      Duck: Down , S
     </p>
     <p class="perimeter-instructions">
       Keep on rollin!
