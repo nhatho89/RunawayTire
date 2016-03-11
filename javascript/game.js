@@ -7,6 +7,7 @@
 
 var Game = RunawayTire.Game = function(tire) {
   this.tire = tire;
+  this.teleport = false;
   this.score = 0;
   this.started = false;
   this.startButton = document.getElementsByClassName("start-button");
@@ -22,10 +23,12 @@ var Game = RunawayTire.Game = function(tire) {
     this.handleJump(e);
   }.bind(this));
 
+
+
   $(".start-button").click(function(e){
-    var game = new RunawayTire.Game(e.target.value);
+    console.log(e.target.value);
     if (!this.started) {
-      this.start();
+      this.start(e.target.value);
     }
   }.bind(this));
 
@@ -33,13 +36,31 @@ var Game = RunawayTire.Game = function(tire) {
 };
 
 
-Game.prototype.start = function () {
+Game.prototype.start = function (difficulty) {
   $("#welcome-message").hide();
   $("#scoreboard").hide();
+
+  var pointIncrements;
+  var speed;
+  switch(difficulty) {
+    case 'easy':
+    pointIncrements = 100;
+    speed = 2000;
+    break;
+    case 'medium':
+    pointIncrements = 50;
+    speed = 1600;
+    break;
+    case 'hard':
+    pointIncrements = 20;
+    speed = 900;
+    break;
+  }
+
   this.started = true;
-  this.timeInterval = window.setInterval(this.incrementScore.bind(this), 50);
+  this.timeInterval = window.setInterval(this.incrementScore.bind(this), pointIncrements);
   this.collisionInterval = window.setInterval(this.checkCollision.bind(this), 10);
-  this.obstacle = new RunawayTire.Obstacle(this);
+  this.obstacle = new RunawayTire.Obstacle(this, speed);
 };
 
 Game.prototype.stop = function () {
@@ -49,17 +70,12 @@ Game.prototype.stop = function () {
   window.clearInterval(this.timeInterval);
   window.clearInterval(this.collisionInterval);
   window.clearInterval(this.obstacleInterval);
-  
+
   window.clearInterval(this.obstacle.obstacleLoop);
 
   this.started = false;
   this.score = 0;
-  // $('.obstacle').animate({ right: $(window).width() + 'px' }, 1500, 'linear', function() {
-  //   $(this).css({ right: - $(this).width() + 'px' });
-  // });
-
-
-  // this.obstacles = [];
+  
 
 
 };
@@ -68,6 +84,10 @@ Game.prototype.checkCollision = function () {
   //if collision is true, stop game
 
     // var obstacle = $('.obstacle');
+    // if (this.teleport) {
+    //
+    // }
+    // else
     if (this.duck) {
       var tireLeft = $(".tire-duck" ).offset().left;
       var tireTop = $(".tire-duck" ).offset().top;
@@ -161,23 +181,26 @@ Game.prototype.checkCollision = function () {
   Game.prototype.handleJump = function(event) {
     // debugger
     console.log(event.keyCode);
-    if ((event.keyCode === 32 || event.keyCode === 38 || event.keyCode === 87) && ($("#tire-img" ).offset().top > 320)) {
-      console.log("keypressed" + event.keyCode);
+
+    if ((event.keyCode === 38 || event.keyCode === 87) && ($("#tire-img" ).offset().top > 300)) {
+      console.log("keyup" + event.keyCode);
       this.tire.jump();
 
     };
     //triggers ducking function
     if ((!this.duck) && (event.keyCode === 83 || event.keyCode === 40)) {
-
-      event.preventDefault();
       this.duck = true;
       this.tire.duck();
     }
 
-    if (event.keyCode === 13) {
+    if ($( "#tire-img" ).width() > 80 && event.keyCode === 32) {
+      this.teleport = true;
 
-      event.preventDefault();
-      this.start();
+      this.tire.shrink();
+    }
+
+    if (event.keyCode === 13) {
+      this.start('medium');
     }
 
   };
@@ -186,9 +209,13 @@ Game.prototype.checkCollision = function () {
     console.log("key up" + event.keyCode);
     if (event.keyCode === 83 || event.keyCode === 40) {
 
-      event.preventDefault();
       this.duck = false;
       this.tire.unduck();
+    }
+
+    if (event.keyCode === 32) {
+      this.tire.unShrink();
+      this.teleport = false;
     }
   };
 

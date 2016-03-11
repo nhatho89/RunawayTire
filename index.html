@@ -19,6 +19,27 @@
     </script>
   </head>
   <body>
+    <div class="jump-demo">
+      <p class="jump-demo-text">JUMP!</p>
+
+        <img id="tire-img-jump-demo" src="./tire-1.png" />
+
+        <img class="spikes-demo" src='./Images/tire-spike-burned.png' />
+    </div>
+
+    <div class="teleport-demo">
+      <p class="teleport-demo-text">TELEPORT!</p>
+
+        <img id="tire-img-teleport-demo" src="./tire-1.png" />
+
+        <img class="street-light-demo" src='./Images/street-light.png' />
+    </div>
+
+    <div class="duck-demo">
+      <p class="duck-demo-text">DUCK!</p>
+        <img id="tire-img-duck-demo" src="./tire-duck.png" />
+        <img class="railroad-demo" src='./Images/railroad-cross.png' />
+    </div>
     <div id="game-window">
       <div id="welcome-message" class="message-window">
         <h3 class="welcome-header">Runaway Tire!</h3>
@@ -30,7 +51,9 @@
         <ul class="start-button-container">
           <li>
             <!-- add level difficulties -->
-            <button class="start-button" value="medium">Start</button>
+            <button class="start-button" value="easy">Easy</button>
+            <button class="start-button" value="medium">Medium</button>
+            <button class="start-button" value="hard">Hard</button>
           </li>
         </ul>
       </div>
@@ -46,7 +69,9 @@
         <ul class="start-button-container">
           <li>
             <!-- add level difficulties -->
-            <button class="start-button" value="medium">Restart</button>
+            <button class="start-button" value="easy">Easy</button>
+            <button class="start-button" value="medium">Medium</button>
+            <button class="start-button" value="hard">Hard</button>
           </li>
         </ul>
       </div>
@@ -66,6 +91,12 @@
       <div class="obstacle-railroad">
         <img class="railroad" src='./Images/railroad-cross.png' />
       </div>
+
+      <div class="obstacle-street-light">
+        <img class="street-light" src='./Images/street-light.png' />
+      </div>
+
+
 
     </div>
 
