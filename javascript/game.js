@@ -75,7 +75,7 @@ Game.prototype.stop = function () {
 
   this.started = false;
   this.score = 0;
-  
+
 
 
 };
@@ -182,7 +182,7 @@ Game.prototype.checkCollision = function () {
     // debugger
     console.log(event.keyCode);
 
-    if ((event.keyCode === 38 || event.keyCode === 87) && ($("#tire-img" ).offset().top > 300)) {
+    if ((event.keyCode === 38 || event.keyCode === 87) && ($("#tire-img" ).offset().top > 320)) {
       console.log("keyup" + event.keyCode);
       this.tire.jump();
 
