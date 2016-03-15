@@ -180,10 +180,10 @@ h2 {
 .obstacle {
   overflow:hidden;
   position: absolute;
-  bottom: -20px;
+  bottom: -162px;
   right: -200px;
-  /*right: 100px;*/
   width: 150px;
+  height: 200px;
 
 }
 
@@ -311,7 +311,6 @@ h2 {
   position: absolute;
   width: 100px;
   right: 100px;
-  /*left: 150px;*/
   height: 400px;
   bottom: -63px;
   right: -100px;

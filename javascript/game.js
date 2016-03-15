@@ -122,8 +122,6 @@ Game.prototype.checkCollision = function () {
 
 
 
-
-
     //if tire touches the obstacle from the top (squishes obstacle)
     var heightClearance = (totalTireHeight >= totalObsHeight);
 
@@ -139,6 +137,9 @@ Game.prototype.checkCollision = function () {
     else {
       this.stop();
     }
+
+
+
 
 
     if (!this.duck) {
@@ -167,6 +168,23 @@ Game.prototype.checkCollision = function () {
           (tireTop > totalObsHeight) ||
           ((totalTireWidth) < obsLeft) ||
           ((tireLeft + 35) > totalObsWidth)) {
+
+    }
+    else {
+      this.stop();
+    }
+
+    var lightLeft = $('.obstacle-street-light').offset().left;
+    var lightTop = $('.obstacle-street-light').offset().top;
+    var lightHeight = $('.obstacle-street-light').outerHeight(true);
+    var lightWidth = $('.obstacle-street-light').outerWidth(true);
+    var totalLightHeight = lightHeight + lightTop;
+    var totalLightWidth = lightLeft + lightWidth;
+
+    if ( (totalTireHeight < lightTop) ||
+          (tireTop > totalLightHeight) ||
+          ((totalTireWidth) < lightLeft) ||
+          ((tireLeft + 35) > totalLightWidth)) {
 
     }
     else {

@@ -33,8 +33,8 @@
 
   Tire.prototype.shrink = function () {
     $( "#tire-img" ).animate({'width': 1},100);
-    $( "#tire-img" ).animate({'height': 1},200);
-    $( "#tire" ).animate({'bottom': -600},200);
+    $( "#tire-img" ).animate({'height': 1},150);
+    $( "#tire" ).animate({'bottom': -200},50);
 
     // this.htmlElement.style.bottom = "600px";
 
