@@ -45,22 +45,32 @@ Game.prototype.start = function (difficulty) {
   switch(difficulty) {
     case 'easy':
     pointIncrements = 100;
-    speed = 2000;
+    speed = 2400;
     break;
     case 'medium':
     pointIncrements = 50;
-    speed = 1600;
+    speed = 2000;
     break;
     case 'hard':
     pointIncrements = 20;
-    speed = 900;
+    speed = 1600;
     break;
   }
+
+  this.gameCount = 3;
+  var that = this;
+  this.startCount = setInterval(function() {
+    $('.motivation').html("Game Starts In: " + that.gameCount);
+    that.gameCount -= 1;
+  },1000);
+
+
+  setTimeout(function(){ window.clearInterval(that.startCount); that.obstacle = new RunawayTire.Obstacle(that, speed); }, 4000);
 
   this.started = true;
   this.timeInterval = window.setInterval(this.incrementScore.bind(this), pointIncrements);
   this.collisionInterval = window.setInterval(this.checkCollision.bind(this), 10);
-  this.obstacle = new RunawayTire.Obstacle(this, speed);
+
 };
 
 Game.prototype.stop = function () {
@@ -74,7 +84,10 @@ Game.prototype.stop = function () {
   window.clearInterval(this.obstacle.obstacleLoop);
 
   this.started = false;
+  $('.motivation').html("");
+  $('.easy-instruction').html("");
   this.score = 0;
+
 
 
 

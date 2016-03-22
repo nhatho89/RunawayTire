@@ -17,7 +17,7 @@
 
     window.setTimeout(function () {
       this.htmlElement.style.bottom = "0px";
-    }.bind(this), 300 )
+    }.bind(this), 500 )
   };
 
   Tire.prototype.duck = function () {
@@ -32,9 +32,9 @@
   };
 
   Tire.prototype.shrink = function () {
-    $( "#tire-img" ).animate({'width': 1},100);
+    $( "#tire-img" ).animate({'width': 1},80);
     $( "#tire-img" ).animate({'height': 1},150);
-    $( "#tire" ).animate({'bottom': -200},50);
+    $( "#tire" ).animate({'bottom': -225},10);
 
     // this.htmlElement.style.bottom = "600px";
 

@@ -329,3 +329,21 @@ h2 {
 
 
 }
+
+.easy-instruction-container {
+  font-size: 40px;
+  position: absolute;
+  left: 35%;
+  width: 300px;
+  top: 100px;
+  color: red;
+  font-weight: 800;
+  text-shadow: 0px 0px 5px black;
+}
+
+.motivation {
+  font-size: 24px;
+  color: yellow;
+  text-shadow: 0px 0px 5px black;
+  font-weight: 600;
+}
