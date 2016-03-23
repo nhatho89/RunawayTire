@@ -50,7 +50,7 @@
         "These puns are 'tireable'",
         "You are 'wheely' good!",
         "Do you ever feel like you're head is just spinning?",
-        "Did this guy really re-invent the Google game?",
+        "Did this guy really re-invent Google Dinosaur game?",
         "Bored? 'Ramp' it up and play on hard!"
 
       ]
