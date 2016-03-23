@@ -26,7 +26,7 @@ var Game = RunawayTire.Game = function(tire) {
 
 
   $(".start-button").click(function(e){
-    console.log(e.target.value);
+    
     if (!this.started) {
       this.start(e.target.value);
     }
@@ -39,6 +39,7 @@ var Game = RunawayTire.Game = function(tire) {
 Game.prototype.start = function (difficulty) {
   $("#welcome-message").hide();
   $("#scoreboard").hide();
+  this.score = 0;
 
   var pointIncrements;
   var speed;
@@ -65,10 +66,14 @@ Game.prototype.start = function (difficulty) {
   },1000);
 
 
-  setTimeout(function(){ window.clearInterval(that.startCount); that.obstacle = new RunawayTire.Obstacle(that, speed); }, 4000);
+  setTimeout(function(){
+    window.clearInterval(that.startCount);
+    that.obstacle = new RunawayTire.Obstacle(that, speed);
+    that.timeInterval = window.setInterval(that.incrementScore.bind(that), pointIncrements);
+  }, 4000);
 
   this.started = true;
-  this.timeInterval = window.setInterval(this.incrementScore.bind(this), pointIncrements);
+  // this.timeInterval = window.setInterval(this.incrementScore.bind(this), pointIncrements);
   this.collisionInterval = window.setInterval(this.checkCollision.bind(this), 10);
 
 };
@@ -86,7 +91,6 @@ Game.prototype.stop = function () {
   this.started = false;
   $('.motivation').html("");
   $('.easy-instruction').html("");
-  this.score = 0;
 
 
 
@@ -211,10 +215,10 @@ Game.prototype.checkCollision = function () {
 
   Game.prototype.handleJump = function(event) {
     // debugger
-    console.log(event.keyCode);
+    
 
     if ((event.keyCode === 38 || event.keyCode === 87) && ($("#tire-img" ).offset().top > 320)) {
-      console.log("keyup" + event.keyCode);
+      
       this.tire.jump();
 
     };
@@ -237,7 +241,7 @@ Game.prototype.checkCollision = function () {
   };
 
   Game.prototype.handleDuck = function(event) {
-    console.log("key up" + event.keyCode);
+    
     if (event.keyCode === 83 || event.keyCode === 40) {
 
       this.duck = false;

@@ -12,7 +12,6 @@
 
   Tire.prototype.jump = function () {
 
-    console.log("jump!");
     this.htmlElement.style.bottom = "150px";
 
     window.setTimeout(function () {
