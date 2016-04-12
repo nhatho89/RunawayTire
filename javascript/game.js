@@ -26,7 +26,7 @@ var Game = RunawayTire.Game = function(tire) {
 
 
   $(".start-button").click(function(e){
-    
+
     if (!this.started) {
       this.start(e.target.value);
     }
@@ -46,15 +46,15 @@ Game.prototype.start = function (difficulty) {
   switch(difficulty) {
     case 'easy':
     pointIncrements = 100;
-    speed = 2400;
+    speed = 2800;
     break;
     case 'medium':
     pointIncrements = 50;
-    speed = 2000;
+    speed = 2400;
     break;
     case 'hard':
     pointIncrements = 20;
-    speed = 1600;
+    speed = 2000;
     break;
   }
 
@@ -215,10 +215,10 @@ Game.prototype.checkCollision = function () {
 
   Game.prototype.handleJump = function(event) {
     // debugger
-    
+
 
     if ((event.keyCode === 38 || event.keyCode === 87) && ($("#tire-img" ).offset().top > 320)) {
-      
+
       this.tire.jump();
 
     };
@@ -241,7 +241,7 @@ Game.prototype.checkCollision = function () {
   };
 
   Game.prototype.handleDuck = function(event) {
-    
+
     if (event.keyCode === 83 || event.keyCode === 40) {
 
       this.duck = false;

@@ -69,7 +69,7 @@
 
 
         that.count += 1;
-        if (speed === 2400) {
+        if (speed === 2800) {
           switch (rand) {
             case 0:
             $('.easy-instruction').html("JUMP UP!");
